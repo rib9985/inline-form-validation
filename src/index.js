@@ -1,3 +1,7 @@
+import populateCountrySelect from "./countriesPopulate";
+
+populateCountrySelect();
+
 const email = document.getElementById("email");
 const country = document.getElementById("country");
 const zipcode = document.getElementById("zipcode");

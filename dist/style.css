@@ -19,7 +19,7 @@ form{
   justify-content: center;
   align-items: center;
 }
-input{
+input,select{
   padding: 10px;
   color: black;
   justify-content:center;
@@ -31,25 +31,29 @@ input{
   background: grey;
 }
 
-input::placeholder{
+select{
+  width: 230px;
+}
+
+input::placeholder, select::placeholder{
   color: darkslateblue
 }
 
-input::placeholder:focus{
+input::placeholder:focus {
   color: darkslateblue
 }
 
-input:invalid:focus{
+input:invalid:focus, select:invalid:focus{
   outline-color: darkred;
   background-color: lightcoral
 }
 
-input:invalid{
+input:invalid, select:invalid{
   outline-color: darkred;
   background-color: lightcoral
 }
 
-input:focus{
+input:focus, select:focus{
   color: black;
   background-color: lightgrey;
   border-style: dotted;
