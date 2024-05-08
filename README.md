@@ -1,2 +1,3 @@
-# basic-webpack-template
-A basic webpack template 
+# A inline form validation exercise
+
+Exercise to learn form validation

@@ -1,7 +1,7 @@
 {
-  "name": "dropdown-template",
+  "name": "Inline Validation Form",
   "version": "1.0.0",
-  "description": "A template for general things",
+  "description": "An inline validation form test",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -35,6 +35,8 @@
     "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "date-fns": "^3.3.1"
+    "countries-list": "^3.1.0",
+    "date-fns": "^3.3.1",
+    "normalize.css": "^8.0.1"
   }
 }

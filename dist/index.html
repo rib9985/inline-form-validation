@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title></title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="main.js" defer></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <form>
-    <input type="email" name="E-mail" placeholder="E-mail" />
-    <input type="text" name="Country" placeholder="Country" />
-    <input type="text" name="Zip-Code" placeholder="Zip-Code" />
-    <input type="password" name="password" placeholder="Password" />
-    <input type="password" name="assword" placeholder="Confirm Password" />
-
+    <input type="email" name="E-mail" placeholder="E-mail" required />
+    <input type="text" name="Country" placeholder="Country" required />
+    <input id='zipcode' type="text" name="Zip-Code" placeholder="Zip-Code" required />
+    <input id='passwordForm' type="password" name="password" placeholder="Password" required />
+    <input id='confirmPassword' type="password" name="password" placeholder="Confirm Password" required />
+    <button id='button-submit'>Submit</button>
 
   </form>
 
