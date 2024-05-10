@@ -6,7 +6,7 @@ const countryEmojis = Object.keys(countries).map((country) =>
 );
 
 const countryArray = countryNames.map(
-  (name, index) => `${countryEmojis[index]} ${name}`,
+  (name, index) => `${name} ${countryEmojis[index]}`,
 );
 const countrySelectInput = document.getElementById("countrySelect");
 
