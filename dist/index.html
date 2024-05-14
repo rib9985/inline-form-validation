@@ -11,14 +11,14 @@
 
 <body>
   <form>
-    <input type="text" name="name" placeholder="Name" required />
-    <input type="email" name="E-mail" placeholder="E-mail" required />
-    <input id='passwordForm' type="password" name="password" placeholder="Password" required />
-    <input id='confirmPassword' type="password" name="password" placeholder="Confirm Password" required />
+    <input id='name'type="text" name="name" placeholder="Name" required />
+    <input id='email' type="email" name="E-mail" placeholder="E-mail" required />
+    <input id='password' type="password" name="password" placeholder="Password"  required />
+    <input id='confirmPassword' type="password" name="password" placeholder="Confirm Password"  required />
     <select id='countrySelect' required>
       <option value="">Country</option>
     </select>
-    <input id='zipcode' type="text" name="Zip-Code" placeholder="Zip-Code" required />
+    <input id='zipcode' type="text" name="Zip-Code" placeholder="Zip-Code" minlength="8" required />
     <button id='button-submit'>Submit</button>
 
   </form>

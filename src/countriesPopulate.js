@@ -11,11 +11,9 @@ const countryArray = countryNames.map(
 const countrySelectInput = document.getElementById("countrySelect");
 
 function createOptionElement(country) {
-  console.log(countryEmojis);
   const option = document.createElement("option");
   option.textContent = country;
   countrySelectInput.appendChild(option);
-  console.log(country);
 }
 
 function populateCountrySelect() {

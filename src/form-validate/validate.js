@@ -1,45 +1,40 @@
 export default class FormValidate {
-  constructor(elementId, errorMessage) {
-    this.element = document.getElementById(elementId);
-    this.errorMessage = errorMessage;
-    this.setupValidation();
-  }
+  static validateEmail(email) {}
 
-  setupValidation() {
-    this.element.addEventListener("input", () => {
-      if (!this.element.validity.valid) {
-        this.element.setCustomValidity(this.errorMessage);
+  static validateCountry(country) {}
+
+  static validateZip(zip) {}
+
+  static validatePassword(password) {}
+
+  static validateConfirmPassword(password, confirmPassword) {}
+
+  static validateName(ev) {
+    const nameInput = ev;
+
+    nameInput.setCustomValidity("");
+    const currentState = nameInput.checkValidity();
+    if (currentState) {
+      const regEx = new RegExp("^[a-zA-Z]+$");
+      if (!regEx.test(nameInput.value) || nameInput.length < 3) {
+        nameInput.setCustomValidity(
+          "Name should not contain numbers and/or symbols and be longer than 3 letters",
+        );
+        nameInput.reportValidity();
       }
-    });
-  }
-}
-const nameValidator = new FormValidate("name", "Please input a valid name");
-const emailValidator = new FormValidate(
-  "email",
-  "Please input a valid email address",
-);
-const countryValidator = new FormValidate(
-  "country",
-  "Please select a valid country",
-);
-const zipcodeValidator = new FormValidate(
-  "zipcode",
-  "Please input a valid zipcode or area code",
-);
-const passwordValidator = new FormValidate(
-  "passwordForm",
-  "A valid password should contain at least 8 characters, both lower and upper case characters, and one number or symbol",
-);
-const confirmPasswordValidator = new FormValidate(
-  "confirmPassword",
-  "Your passwords do not match",
-);
+    }
 
-export function validateForms() {
-  passwordValidator.setupValidation();
-  confirmPasswordValidator.setupValidation();
-  countryValidator.setupValidation();
-  emailValidator.setupValidation();
-  zipcodeValidator.setupValidation();
-  nameValidator.setupValidation();
+    console.log(nameInput.validity);
+  }
+
+  static addListeners() {
+    const name = document.getElementById("name");
+    const email = document.getElementById("email");
+    const country = document.getElementById("countrySelect");
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirmPassword");
+    const zipcode = document.getElementById("zipcode");
+
+    name.addEventListener("input", this.validateName.bind(this, name));
+  }
 }

@@ -1,5 +1,5 @@
 import populateCountrySelect from "./countriesPopulate";
-import FormValidate, { validateForms } from "./form-validate/validate";
+import FormValidate from "./form-validate/validate";
 
 populateCountrySelect();
-validateForms();
+FormValidate.addListeners();
