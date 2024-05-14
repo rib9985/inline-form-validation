@@ -64,3 +64,11 @@ input:valid{
   outline-color: darkseagreen;
   background-color: lightgreen
 }
+
+#zipcode{
+ text-transform: uppercase;
+}
+
+#zipcode::placeholder{
+  text-transform: capitalize;
+}
