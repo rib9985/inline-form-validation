@@ -22,9 +22,36 @@ export default class FormValidate {
     }
     zipInput.setCustomValidity("");
   }
-  static validatePassword(passwordInput) {}
+  static validatePassword(passwordInput) {
+    passwordInput.setCustomValidity("");
+    const regexPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_])\S+$/;
 
-  static validateConfirmPassword(password, confirmPassword) {}
+    if (passwordInput.value.length < 9 || passwordInput.value.length > 30) {
+      passwordInput.setCustomValidity(
+        "Your password must have at least 8 characters and less than 30 characters",
+      );
+      passwordInput.reportValidity();
+      return;
+    }
+    if (!regexPattern.test(passwordInput.value)) {
+      passwordInput.setCustomValidity(
+        "Your password should have an uppercase, an lowercase, a number, and a symbol. No spaces.",
+      );
+      password.reportValidity();
+      return;
+    }
+    passwordInput.setCustomValidity("");
+  }
+
+  static validateConfirmPassword(confirmPassInput, passwordInput) {
+    confirmPassInput.setCustomValidity("");
+    if (confirmPassInput.value !== passwordInput.value) {
+      confirmPassInput.setCustomValidity("Passwords do not match!");
+      confirmPassInput.reportValidity();
+      return;
+    }
+    confirmPassInput.setCustomValidity("");
+  }
 
   static validateName(nameInput) {
     nameInput.setCustomValidity("");
@@ -64,5 +91,13 @@ export default class FormValidate {
 
     name.addEventListener("input", this.validateName.bind(this, name));
     zipcode.addEventListener("input", this.validateZip.bind(this, zipcode));
+    password.addEventListener(
+      "input",
+      this.validatePassword.bind(this, password),
+    );
+    confirmPassword.addEventListener(
+      "input",
+      this.validateConfirmPassword.bind(this, confirmPassword, password),
+    );
   }
 }
