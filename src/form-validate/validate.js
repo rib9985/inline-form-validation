@@ -1,5 +1,14 @@
 export default class FormValidate {
-  static validateEmail(email) {}
+  static validateEmail(emailInput) {
+    emailInput.setCustomValidity("");
+    const emailRegEx = /.*@.*\..*/;
+    if (!emailRegEx.test(emailInput.value)) {
+      emailInput.setCustomValidity("Your email should have a @ and . domain");
+      emailInput.reportValidity();
+      return;
+    }
+    emailInput.setCustomValidity("");
+  }
 
   static validateCountry(country) {}
 
@@ -99,5 +108,6 @@ export default class FormValidate {
       "input",
       this.validateConfirmPassword.bind(this, confirmPassword, password),
     );
+    email.addEventListener("input", this.validateEmail.bind(this, email));
   }
 }
